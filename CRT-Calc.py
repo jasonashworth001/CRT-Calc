@@ -72,8 +72,8 @@ tb_reveal = st.session_state["tb_reveal"]
 
 # --- Hardware Specs ---
 with st.sidebar.expander("Hardware Specifications"):
-    clevis_1_model = st.text_input("Rod-Side Clevis Model", value="CL25300-0531")
-    clevis_1_len = st.number_input("Rod-Side Clevis Length (in)", value=4.0)
+    clevis_1_model = st.text_input("Structure-Side Clevis Model", value="CL25300-0531")
+    clevis_1_len = st.number_input("Structure-Side Clevis Length (in)", value=4.0)
     turnbuckle_model = st.text_input("Turnbuckle Model", value="TB0900-0001")
     turnbuckle_len = st.number_input("Turnbuckle Length (in)", value=4.0)
     clevis_2_model = st.text_input("Wall-Side Clevis Model", value="CL25300-0531")
@@ -114,7 +114,7 @@ data.extend([
 data.extend([
     ["", "", ""],
     ["--- Hardware Specs ---", "", ""],
-    ["Rod-Side Clevis", display_length(clevis_1_len, rounding_option, display_format), f"{clevis_1_model} (tie-back clip end)"],
+    ["Structure-Side Clevis", display_length(clevis_1_len, rounding_option, display_format), f"{clevis_1_model} (tie-back clip end)"],
     ["Turnbuckle", display_length(turnbuckle_len, rounding_option, display_format), f"{turnbuckle_model} (center connector)"],
     ["Wall-Side Clevis", display_length(clevis_2_len, rounding_option, display_format), f"{clevis_2_model} (wall plate end)"]
 ])
