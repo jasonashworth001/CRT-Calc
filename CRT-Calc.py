@@ -121,7 +121,7 @@ data.extend([
 
 # --- Display Table ---
 df = pd.DataFrame(data, columns=["Component", "Length", "Model / Notes"]).astype(str)
-st.title("Clevis-Rod-Turnbuckle (CRT) Arm Calculator")
+st.title("CRT Arm Calculator")
 st.dataframe(df, use_container_width=True)
 
 csv = df.to_csv(index=False).encode('utf-8')
