@@ -42,20 +42,6 @@ st.sidebar.header("Display Settings")
 rounding_option = st.sidebar.selectbox("Rounding Precision", ["No Rounding", "Nearest 1/16\"", "Nearest 1/8\"", "Nearest 1/4\"", "Nearest 1/2\""], index=1)
 display_format = st.sidebar.selectbox("Display Format", ["Decimal", "Fraction"], index=1)
 
-# --- Advanced Geometry Offsets ---
-edit_geometry_offsets = st.sidebar.checkbox("Edit Arm Geometry Offsets", value=False)
-if "wall_axis" not in st.session_state:
-    st.session_state["wall_axis"] = 1.688
-if "structure_axis" not in st.session_state:
-    st.session_state["structure_axis"] = 1.438
-
-if edit_geometry_offsets:
-    st.session_state["wall_axis"] = st.sidebar.number_input("Wall-to-Clip Axis Offset (in)", value=st.session_state["wall_axis"])
-    st.session_state["structure_axis"] = st.sidebar.number_input("Structure-to-Axis Offset (in)", value=st.session_state["structure_axis"])
-
-wall_axis = st.session_state["wall_axis"]
-structure_axis = st.session_state["structure_axis"]
-
 # --- Reveal Settings ---
 edit_reveal_settings = st.sidebar.checkbox("Edit Reveal Settings", value=False)
 if "clevis_reveal" not in st.session_state:
@@ -69,6 +55,20 @@ if edit_reveal_settings:
 
 clevis_reveal = st.session_state["clevis_reveal"]
 tb_reveal = st.session_state["tb_reveal"]
+
+# --- Advanced Geometry Offsets ---
+edit_geometry_offsets = st.sidebar.checkbox("Edit Tie-Back Geometry Offsets", value=False)
+if "wall_axis" not in st.session_state:
+    st.session_state["wall_axis"] = 1.688
+if "structure_axis" not in st.session_state:
+    st.session_state["structure_axis"] = 1.438
+
+if edit_geometry_offsets:
+    st.session_state["wall_axis"] = st.sidebar.number_input("Wall-to-Clip Axis Offset (in)", value=st.session_state["wall_axis"])
+    st.session_state["structure_axis"] = st.sidebar.number_input("Structure-to-Axis Offset (in)", value=st.session_state["structure_axis"])
+
+wall_axis = st.session_state["wall_axis"]
+structure_axis = st.session_state["structure_axis"]
 
 # --- Hardware Specs ---
 with st.sidebar.expander("Hardware Specifications"):
